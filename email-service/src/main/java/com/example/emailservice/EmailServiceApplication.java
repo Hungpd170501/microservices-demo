@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication(
         scanBasePackages = {
                 "com.example.emailservice",
-                "com.example.amqp",
+                "com.example.amqp"
         }
 )
 @EnableEurekaClient

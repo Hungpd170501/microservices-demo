@@ -1,0 +1,52 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: email-service
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/email
+    username: hungpd170501
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  zipkin:
+    base-url: http://localhost:9411
+  rabbitmq:
+    addresses: localhost:5672
+  profiles:
+    active: default
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    username: hunga1705@gmail.com
+    password: sawqoatroowhbdhf
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+    enabled: true
+rabbitmq:
+  exchanges:
+    internal: internal.exchange
+  queues:
+    email: email.queue
+  routing-keys:
+    internal-email: internal.email.routing-key
+
+mail:
+  debug: true
